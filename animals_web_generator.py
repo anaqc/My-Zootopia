@@ -18,20 +18,21 @@ def serialize_animal(animal_obj):
     animal_type = animal_obj["characteristics"].get("type")
     animal_color = animal_obj["characteristics"].get("color")
     # append information to each string
-    output += "<li class='cards__item'>"
-    output += f"<div class='card__title'>{animal_obj['name']}</div>"
-    output += "<p class='card__text'>"
-    output += f"<strong>Scientific Name:</strong> {animal_obj['taxonomy']['scientific_name']}<br/>\n"
-    output += f"<strong>Diet:</strong> {animal_obj['characteristics']['diet']}<br/>\n"
-    output += f"<strong>Location:</strong> {animal_obj["locations"][0]}<br/>\n"
+    output += "<li class='cards__item'>\n\t"
+    output += f"<div class='card__title'>{animal_obj['name']}</div>\n\t"
+    output += "<p class='card__text'>\n\t\t"
+    output += "<ul'>\n\t\t\t"
+    output += (f"<li><strong>Scientific Name:</strong> {animal_obj['taxonomy']['scientific_name']}"
+               f"</li>\n\t\t\t")
+    output += f"<li><strong>Diet:</strong> {animal_obj['characteristics']['diet']}</li>\n\t\t\t"
+    output += f"<li><strong>Location:</strong> {animal_obj["locations"][0]}</li>\n\t\t\t"
     if animal_color is not None:
-        output += f"<strong>Color:</strong> {animal_color}<br/>\n"
+        output += f"<li><strong>Color:</strong> {animal_color}</li>\n\t\t\t"
     if animal_type is not None:
-        output += f"<strong>Type:</strong> {animal_type}<br/>\n"
-
-
-    output += "</p>"
-    output += "</li>"
+        output += f"<li><strong>Type:</strong> {animal_type}</li>\n\t\t"
+    output += "</ul>\n\t"
+    output += "</p>\n"
+    output += "</li>\n"
     return output
 
 def write_new_content(file_path, content):
