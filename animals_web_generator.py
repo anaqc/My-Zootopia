@@ -11,15 +11,18 @@ def read_animals_html(file_path):
         return handle.read()
 
 def print_animals_info(animals):
+    # define an empty string
     output = ""
     for animal in animals:
         animal_type = animal["characteristics"].get("type")
-        output += f"Name: {animal['name']}\n"
-        output += f"Diet: {animal['characteristics']['diet']}\n"
-        output += f"First location: {animal["locations"][0]}\n"
+        # append information to each string
+        output += "<li class='cards__item'>"
+        output += f"Name: {animal['name']}<br/>\n"
+        output += f"Diet: {animal['characteristics']['diet']}<br/>\n"
+        output += f"First location: {animal["locations"][0]}<br/>\n"
         if animal_type is not None:
-            output += f"Type: {animal_type}\n"
-        output += f"\n"
+            output += f"Type: {animal_type}<br/>\n"
+        output += f"</li>"
     return output
 
 def write_new_content(file_path, content):
