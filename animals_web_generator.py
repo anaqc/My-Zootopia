@@ -21,7 +21,7 @@ def serialize_animal(animal_obj):
     output += "<li class='cards__item'>\n\t"
     output += f"<div class='card__title'>{animal_obj['name']}</div>\n\t"
     output += "<p class='card__text'>\n\t\t"
-    output += "<ul'>\n\t\t\t"
+    output += "<ul>\n\t\t\t"
     output += (f"<li><strong>Scientific Name:</strong> {animal_obj['taxonomy']['scientific_name']}"
                f"</li>\n\t\t\t")
     output += f"<li><strong>Diet:</strong> {animal_obj['characteristics']['diet']}</li>\n\t\t\t"
