@@ -17,12 +17,14 @@ def print_animals_info(animals):
         animal_type = animal["characteristics"].get("type")
         # append information to each string
         output += "<li class='cards__item'>"
-        output += f"Name: {animal['name']}<br/>\n"
-        output += f"Diet: {animal['characteristics']['diet']}<br/>\n"
-        output += f"First location: {animal["locations"][0]}<br/>\n"
+        output += f"<div class='card__title'>{animal['name']}</div>"
+        output += "<p class='card__text'>"
+        output += f"<strong>Diet:</strong> {animal['characteristics']['diet']}<br/>\n"
+        output += f"<strong>Location:</strong> {animal["locations"][0]}<br/>\n"
         if animal_type is not None:
-            output += f"Type: {animal_type}<br/>\n"
-        output += f"</li>"
+            output += f"<strong>Type:</strong> {animal_type}<br/>\n"
+        output += "</p>"
+        output += "</li>"
     return output
 
 def write_new_content(file_path, content):
